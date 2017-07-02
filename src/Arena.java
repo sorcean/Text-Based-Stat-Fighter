@@ -29,7 +29,7 @@ public class Arena extends Character{
 	 * */
 	public static void displayOptions(Character attacker, Character defender){
 		//attacker is the attacker defender is the defender
-		System.out.println("\nWhat you like to do, " + attacker.name + "? (" + attacker.roundHealth + " hp)\n1. Attack " + defender.name + " (" + attacker.roundHealth + " hp) (Commit)\n2. " + player1.name + "'s Stats\n3. " + player2.name + "'s Stats");
+		System.out.println("\nWhat you like to do, " + attacker.name + "? (" + attacker.roundHealth + " hp)\n1. Attack " + defender.name + " (" + defender.roundHealth + " hp) (Commit)\n2. " + player1.name + "'s Stats\n3. " + player2.name + "'s Stats");
 		if(attacker.title.equalsIgnoreCase("Berserker"))
 			System.out.println("4. Lifesteal (Commit)\n");
 	}
@@ -228,10 +228,4 @@ public class Arena extends Character{
 	public static Random getRandom(){
 		return rand;
 	}
-
-	
-	/*public void displayHealth(){
-		System.out.println(player1.name + ": " + player1.roundHealth + " hp");
-		System.out.println(player2.name + ": " + player2.roundHealth + " hp");
-	}*/
 }

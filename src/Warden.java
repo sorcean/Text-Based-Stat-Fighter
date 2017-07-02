@@ -23,7 +23,7 @@ public class Warden extends Character{
 		this.damageReductionPercent = 100 - (int)(this.damageMulti * 100);
 		this.bleedStack = 0;
 		//unique to Warden
-		this.bashChance = 25;
+		this.bashChance = 100;
 	}
 	//Warden's own attack method. Includes a chance to shield bash
 	public double attack(Character target){
@@ -60,7 +60,7 @@ public class Warden extends Character{
 	public void shieldBash(Character target){
 		//this if statement doesn't allow the target's armor to be reduced below 40% of it's original amount.
 		if(target.reducedArmor >= target.armor * 0.4){
-			target.reducedArmor -= target.armor * 0.211;
+			target.reducedArmor -= target.armor * 0.2;
 			if(target.reducedArmor < target.armor * 0.4){
 				target.reducedArmor = target.armor * 0.4;
 			}
