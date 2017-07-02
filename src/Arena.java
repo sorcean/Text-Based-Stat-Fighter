@@ -3,16 +3,39 @@ import java.util.Random;
 
 public class Arena extends Character{
 
+
+	/* 
+	 * Made all the character variables, etc. global so that they are accessible to other methods :) 
+	 * AKA you should make more global variables and create more methods so that you dont have a 
+	 * 200 line single main() method LOL
+	 *
+	 */
+
+	private static Scanner in = new Scanner(System.in);
+	public static Random rand = new Random();
+
+	//CAN ONLY TAKE 2 PLAYERS!
+
+	//Creates player1
+	private static Character player1 = new Tank(1000, 100, 60);
+	//Creates player2
+	private static Character player2 = new Berserker(1000, 100, 60);
+
+	/*
+	 * Created the below method and implemented it for you so you don't need to repeat unnecessary code
+	 * SYNTAX ----> displayOptions(attackercharacter, defendercharacter);
+	 * 
+	 * What this also does differently is it also won't print the 4th move unless you are the character type 'berserker'
+	 * 
+	 * */
+	public static void displayOptions(Character attacker, Character defender){
+		//attacker is the attacker defender is the defender
+		System.out.println("\nWhat you like to do, " + attacker.name + "? (" + attacker.roundHealth + " hp)\n1. Attack " + defender.name + " (" + attacker.roundHealth + " hp) (Commit)\n2. " + attacker.name + "'s Stats\n3. " + defender.name + "'s Stats");
+		if(attacker.title.equalsIgnoreCase("Berserker"))
+			System.out.println("4. Lifesteal (Commit)\n");
+	}
+
 	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		Random rand = new Random();
-
-		//CAN ONLY TAKE 2 PLAYERS!
-
-		//Creates player1
-		Character player1 = new Tank(1000, 100, 60);
-		//Creates player2
-		Character player2 = new Berserker(1000, 100, 60);
 
 		//Announces the fighters and their health respectively
 		System.out.println(player1.name + " vs. " + player2.name);
@@ -31,7 +54,8 @@ public class Arena extends Character{
 			boolean turnAgain = true;
 			if(firstTurn == 0){
 				while(turnAgain){
-					System.out.println("\nWhat you like to do, " + player1.name + "? (" + player1.roundHealth + " hp)\n1. Attack " + player2.name + " (" + player2.roundHealth + " hp) (Commit)\n2. " + player1.name + "'s Stats\n3. " + player2.name + "'s Stats\n4. Lifesteal (Commit, Berserker only)\n");
+					displayOptions(player1, player2);
+
 					switch(in.nextInt()){
 					case 1: 
 						turnAgain = false;
@@ -69,7 +93,8 @@ public class Arena extends Character{
 				player2.displayHealth();
 				turnAgain = true;
 				while(turnAgain){
-					System.out.println("\nWhat you like to do, " + player2.name + "? (" + player2.roundHealth + " hp)\n1. Attack " + player1.name + " (" + player1.roundHealth + " hp) (Commit)\n2. " + player1.name + "'s Stats\n3. " + player2.name + "'s Stats\n4. Lifesteal (Commit, Berserker only)\n");
+					displayOptions(player2, player1);
+
 					switch(in.nextInt()){
 					case 1: 
 						turnAgain = false;
@@ -108,7 +133,8 @@ public class Arena extends Character{
 				turnAgain = true;
 			}else if(firstTurn == 1){
 				while(turnAgain){
-					System.out.println("\nWhat you like to do, " + player2.name + "? (" + player2.roundHealth + " hp)\n1. Attack " + player1.name + " (" + player1.roundHealth + " hp) (Commit)\n2. " + player1.name + "'s Stats\n3. " + player2.name + "'s Stats\n4. Lifesteal (Commit, Berserker only)\n");
+					displayOptions(player2,player1);
+
 					switch(in.nextInt()){
 					case 1: 
 						turnAgain = false;
@@ -146,7 +172,10 @@ public class Arena extends Character{
 				player2.displayHealth();
 				turnAgain = true;
 				while(turnAgain){
-					System.out.println("\nWhat you like to do, " + player1.name + "? (" + player1.roundHealth + " hp)\n1. Attack " + player2.name + " (" + player2.roundHealth + " hp) (Commit)\n2. " + player1.name + "'s Stats\n3. " + player2.name + "'s Stats\n4. Lifesteal (Commit, Berserker only)\n");
+					displayOptions(player1, player2);
+
+
+
 					switch(in.nextInt()){
 					case 1: 
 						turnAgain = false;
@@ -195,6 +224,13 @@ public class Arena extends Character{
 			System.out.println("It's a draw!");
 		}
 	}
+
+	// Also made you this getter just because its better than Arena.rand to access the variable :)
+	public static Random getRandom(){
+		return rand;
+	}
+
+	
 	/*public void displayHealth(){
 		System.out.println(player1.name + ": " + player1.roundHealth + " hp");
 		System.out.println(player2.name + ": " + player2.roundHealth + " hp");

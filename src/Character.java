@@ -2,6 +2,7 @@
 import java.util.Random;
 
 public class Character {
+	
 	static Random rand = new Random();
 
 	public String title;//title for the character's class (Warden, Berserker, etc.)
@@ -26,7 +27,7 @@ public class Character {
 	public static String[] nameList = {"Geoff", "Steve", "Krogar", "Bob", "Steve", "Angelo", "Harry", "John", "Morgan", "Anthony", "Mallis", "Alex", "Christian", "Logan", "Josh"};
 	//main constructor for Character
 	public Character(){
-		this.name = nameList[Arena.rand.nextInt(nameList.length)];
+		this.name = nameList[Arena.getRandom().nextInt(nameList.length)];
 	}
 	//
 	public Character(double maxHp, int str, double armor){
