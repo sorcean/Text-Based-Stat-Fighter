@@ -6,9 +6,8 @@ public class Arena extends Character{
 
 	/* 
 	 * Made all the character variables, etc. global so that they are accessible to other methods :) 
-	 * AKA you should make more global variables and create more methods so that you dont have a 
+	 * AKA you should make more global variables and create more methods so that you don't have a 
 	 * 200 line single main() method LOL
-	 *
 	 */
 
 	private static Scanner in = new Scanner(System.in);
@@ -17,7 +16,7 @@ public class Arena extends Character{
 	//CAN ONLY TAKE 2 PLAYERS!
 
 	//Creates player1
-	private static Character player1 = new Tank(1000, 100, 60);
+	private static Character player1 = new Warden(1000, 100, 60);
 	//Creates player2
 	private static Character player2 = new Berserker(1000, 100, 60);
 
@@ -30,7 +29,7 @@ public class Arena extends Character{
 	 * */
 	public static void displayOptions(Character attacker, Character defender){
 		//attacker is the attacker defender is the defender
-		System.out.println("\nWhat you like to do, " + attacker.name + "? (" + attacker.roundHealth + " hp)\n1. Attack " + defender.name + " (" + attacker.roundHealth + " hp) (Commit)\n2. " + attacker.name + "'s Stats\n3. " + defender.name + "'s Stats");
+		System.out.println("\nWhat you like to do, " + attacker.name + "? (" + attacker.roundHealth + " hp)\n1. Attack " + defender.name + " (" + attacker.roundHealth + " hp) (Commit)\n2. " + player1.name + "'s Stats\n3. " + player2.name + "'s Stats");
 		if(attacker.title.equalsIgnoreCase("Berserker"))
 			System.out.println("4. Lifesteal (Commit)\n");
 	}

@@ -32,7 +32,7 @@ public class Character {
 	//
 	public Character(double maxHp, int str, double armor){
 		this();
-		this.setTitle("Traveler");//normal characters have "Taveler" as their titles
+		this.setTitle("Traveler");//normal characters have "Traveler" as their titles
 		this.level = 1;
 		this.maxHealth = maxHp;
 		this.currentHealth = this.maxHealth;
